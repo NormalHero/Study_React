@@ -1,0 +1,100 @@
+useEffect 함수
+- 컴포넌트가 마운트 됐을 때, 언마운트 됐을 때, 업데이트 될 때 특정 작업을 처리할 수 있음
+- 첫번째 파라미터에는 함수, 두번째 파라미터에는 의존값이 들어있는 배열(deps)
+- deps가 없으면 컴포넌트가 처음 나타날때에만 useEffect에 등록한 함수가 호출
+
+
+import React, { useEffect } from 'react';
+
+
+useEffect(() => {
+    console.log('컴포넌트가 나타남');
+    ...
+    return () => {
+        console.log('컴포넌트가 사라짐');
+        ...
+    };
+}, []);
+
+* 마운트(연결)
+- props로 받은 값을 컴포넌트의 상태로 설정
+- 외부 api를 요청
+- 라이브러리 사용
+- setInterval, setTimeout 예약
+
+* 언마운트(해제)
+- 라이브러리 제거
+- clearInterval, clearTimeout 
+
+
+useMemo 함수
+- 성능을 최적화 시키기 위해 사용하는 hook 함수
+- 첫번째 파라미터는 연산할 함수를 넣어줌, 두번째 파라미터는 deps 배열을 넣어주면 됨
+
+
+useCallback 함수
+- 성능을 최적화 시키기 위해 사용하는 hook 함수
+- 특정 함수를 새로 만들지 않고 재사용하고 싶을 때 사용
+
+
+React.memo 함수
+- 컴포넌트의 리렌더링 성능 최적화를 해주는 hook 함수
+
+export default React.memo(컴포넌트명);
+
+
+useReducer 함수
+- 상태 업데이트 로직을 컴포넌트에서 분리시킬 수 있음
+- 상태 업데이트 로직을 다른 파일에 작성 후 불러와서 사용할 수도 있음
+
+
+const [state, dispatch] = useReducer(reducer, initialState);
+
+state : 상태
+dispatch : 액션을 발생시키는 함수
+dispatch({type:'INCREMENT});
+
+* useReducer의 첫번째 파라미터는 reducer 함수, 두번째 파라미터는 초기 상태
+
+
+
+CSS pre-processor 
+
+Sass(scss/sass)
+- 복잡한 CSS 작업을 쉽게 할 수 있게 해주고 코드의 재활용성을 높여줄 뿐 아니라 가독성도 높여주기 떄문에 유지보수를 쉽게 해줌
+
+https://sass-guidelin.es/ko/
+
+설치
+yarn add node-sass
+
+CRA로 만들어진 프로젝트는 5.0버전하고 충돌
+//node-sass 삭제
+$ yarn remove node-sass
+//node-sass 4.14.0버전 설치
+$ yarn add node-sass@4.14.0
+
+
+조건부 CSS 클래스 이름 설정 모듈
+https://www.npmjs.com/package/classnames
+
+yarn add classnames
+
+classNames('Button', 'color'); -> 'Button color'
+classNames('Button', { outline: true } ); -> 'Button outline'
+
+
+CSS Module
+- 리액트 프로젝트에서 컴포넌트를 스타일링 할 때 CSS 클래스가 중첩되는 것을 방지
+- CRA 프로젝트에서 CSS Module을 사용 할 때에는 CSS 파일의 확장자를 .module.css
+- 파일경로, 파일이름, 클래스이름, 해쉬값등 사용
+
+https://postcss.org/
+
+
+styled-components
+- JS안에 CSS를 작성하는 것
+- styled-components 라이브러리를 사용(emotion, styled-jsx ..)
+- Tagged Template Literal 문법을 사용
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals
+

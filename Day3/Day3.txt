@@ -1,0 +1,47 @@
+배열 
+
+const member = {
+    idx: 1,
+    userid: 'apple',
+    name: '김사과'
+}
+
+const member = [
+    {
+        idx: 1,
+        userid: 'apple',
+        name: '김사과'
+    },
+    {
+        idx: 2,
+        userid: 'banana',
+        name: '반하나'
+    },
+    {
+        idx: 3,
+        userid: 'orange',
+        name: '오렌지'
+    }
+]
+
+
+useRef 할 수 있는 것
+1. setTimeout, setInterval을 통해서 만들어진 id
+2. 외부 라이브러리를 사용하여 생성된 객체
+3. DOM 값
+
+
+JSX
+https://reactjs.org/docs/introducing-jsx.html
+https://ko.reactjs.org/docs/introducing-jsx.html (한국어)
+
+
+
+폰트오쏨 설치
+yarn add @fortawesome/fontawesome-free
+
+폰트오쏨 리액트 적용
+https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react
+
+index.js
+import '@fortawesome/fontawesome-free/js/all.js';

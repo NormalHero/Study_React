@@ -1,0 +1,26 @@
+useEffect
+- 컴포넌트가 마운트 됐을 때, 언마운트 됐을 때, 업데이트 될 때 
+- 리액트 라이프사이클을 다룰 때
+
+import React, { useEffect } from 'react';
+
+function Member({ member, onRemove, OnToggle }){
+
+    useEffect(() => {
+        console.log('컴퍼넌트가 화면에 나타남');
+        ...
+        return () => {
+            console.log('컴퍼넌트가 화면에서 사라짐');
+            ...
+        };
+    }, []);
+}
+
+
+과제
+'할 일 리스트' 를 클래스 컴퍼넌트 프로젝트 -> 함수형 컴퍼넌트 프로젝트로 변경
+(메일 ryuzy@naver.com )
+
+다음시간에 깃허브 한 번 해봐요 !!!
+
+

@@ -1,0 +1,130 @@
+리액트
+- 사용자 UI를 만들기 위한 자바스크립트 라이브러리
+- 앵귤러(프레임워크), 뷰(프레임워크와 라이브러리 중간단계)
+
+프레임워크 = 집(건축물)
+라이브러리 = 도구, 인테리어 제품
+
+
+컴퍼넌트
+- 리액트에서 레고 조각처럼 조합하여 프로그래밍 할 수 있도록 만든 모듈단위
+- 함수형과 클래스형
+
+
+JSX
+- 페이스북에서 개발한 확장 구문
+- UI를 화면에 나타내는 파일을 만들어가는 것(실제는 자바스크립트)
+- 태그는 꼭 닫혀야함
+- 두개 이상의 태그는 하나의 태그로 감싸져야 함
+    * 단순히 div로 감싸주면 됨
+    * div를 사용하고 싶지 않다면 <>(플레그먼트)를 사용하여 이름없는 태그를 사용하면 됨
+
+- 주석은 {/*   */} 표현
+- css 속성은 카멜케이스 표기법
+스네이크 표기법                  카멜케이스 표기법
+background-color                backgroundColor
+
+
+비구조화 할당
+- 객체 안에 있는 값을 추출해서 변수 혹은 상수에 저장
+
+const student = {'apple':'김사과', 'banana':'오렌지', 'orange':'반하나'};
+                 ------  ------ 
+                  key     value
+const { apple, banana, orange } = student;
+
+
+props(properties)
+- 컴포넌트에 매개변수를 전달
+
+<컴포넌트명 속성="값"></컴포넌트명>
+
+function 컴포넌트명(props){
+    return <div>{props.속성}</div>
+}
+
+defaultProps
+- 컴포넌트에 props를 지정하지 않았을 때 기본값을 설정
+
+컴포넌트명.defaultProps = {
+    설정할 프로퍼티
+    ...
+}
+
+props.children
+- 컴포넌트 태그 사이에 넣은 값을 조회
+
+function 컴포넌트명({ children }){
+
+    return (
+        <div>
+            { children }
+        </div>
+    )
+}
+
+삼항연산자를 사용하여 조건 렌더링
+
+1. 조건식이 true인 경우와 false인 경우를 모두 표현
+{ 조건식 ? true인 경우 : false인 경우}
+
+2. 조건식이 true인 경우만 표현
+{ 조건식 && true인 경우}
+
+
+useState 함수
+- 컴포넌트에서 동적인 값의 상태(state)를 다루는 Hook함수
+
+    const [현재상태변수, 설정함수] =  useState(초기값)
+    예)
+    const [number, setNumber] = useState(0);    // 배열 비구조화 할당
+
+    const numberState = useState(0);
+    const number = numberState[0];
+    const setNumber = numberState[1];
+    
+
+
+* Hook함수
+상태관리를 다루던 클래스를 좀 더 쉽게 다룰수 있도록 만들어진 함수
+
+
+spread 
+- 객체 또는 배열을 펼져 저장할 수 있음
+
+const dog = {
+    name: '루시'
+};
+
+const cuteDog = {
+    ...dog,
+    age: 10
+}
+
+const whiteCuteDog = {
+    ...cuteDog,
+    color: 'white'
+}
+
+
+리액트 상태에서 객체 수정하기
+
+    setUsers({
+        ...users,
+        [name]: value   
+    });
+
+- 리액트에서는 상태값의 불변성을 지켜줘야 함
+- 리액트 컴포넌트에서 상태가 업데이트 되었음을 감지할 수 있음
+
+> 리액트에서 객체를 업데이트 할 때는 기본 객체를 직접 수정하면 안되고, 새로운 객체를 만들어서 새 객체에 변화를 줘야 함
+
+
+useRef 함수
+- 특정 엘리먼트에 접근하거나 스크롤바 위치를 설정할 때
+- 외부 라이브러리를 사용할 때
+
+useRef() 객체를 생성 -> 가상 DOM에 ref 값을 설정
+
+* current : 가상 DOM을 가르킴
+

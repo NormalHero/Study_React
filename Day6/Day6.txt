@@ -1,0 +1,18 @@
+styled-components 모듈
+yarn add styled-components
+
+* css 코드를 조건부로 보여주고 싶다면, css 함수를 불러와 사용해야 스타일 내부에서도 css를 사용할 수 있음
+import styled, { css } from 'styled-components';
+
+
+polished 모듈
+- Sass 형식을 유틸 함수로 변화를 줄 수 있음
+yarn add polished
+
+import { darken, lighten } from 'polished';
+
+
+ThemeProvider 모듈
+- styled-components에서 색상 코드를 지닌 변수를 모든 컴포넌트에서 조회하여 전역적으로 사용할 수 있음
+
+
